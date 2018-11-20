@@ -1,24 +1,20 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
-class CardItem extends Component {
+class ItemCard extends Component {
   render() {
     return (
       <div id="extra">
         <div className="container">
           <div className="row no-collapse-1">
             <section className="4u">
-              {" "}
-              <a to={"#"} className="image featured">
+              <button className="image featured">
                 <img src="images/pic01.jpg" alt="" />
-              </a>
+              </button>
               <div className="box">
-                <h3>Item Name</h3>
-                <p>Category: cat</p>
-                <p>Price: # KD</p>
-                <a to={"#"} className="button">
-                  Find More
-                </a>
+                <h3>title</h3>
+                <p>{this.props.author.first_name}</p>
+                <p>{this.props.author.last_name}</p>
+                <button className="button">More...</button>
               </div>
             </section>
           </div>
@@ -28,4 +24,4 @@ class CardItem extends Component {
   }
 }
 
-export default CardItem;
+export default ItemCard;
