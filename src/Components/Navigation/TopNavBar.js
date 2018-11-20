@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class TopNavBar extends Component {
   render() {
     return (
-      <div class="wrapper style1">
+      <div className="wrapper style1">
         <div id="header" className="skel-panels-fixed">
           <div id="logo">
             <h1>
