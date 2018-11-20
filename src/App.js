@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Home from "./Components/Home";
 
 import CardItem from "./Components/CardItem";
 
@@ -9,7 +9,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <CardItem />
+        <header className="App-header">
+          <Home />
+        </header>
 
       </div>
     );
