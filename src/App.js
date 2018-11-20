@@ -1,21 +1,48 @@
 import React, { Component } from "react";
-import "./App.css";
-import Home from "./Components/Home";
+import { connect } from "react-redux";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
-import CardItem from "./Components/CardItem";
+import "./App.css";
+
+//Commponents
+import Home from "./Components/Home";
+import RegistrationForm from "./Components/RegistrationForm";
+import ItemsList from "./Components/ItemsList";
 
 class App extends Component {
+  // componentWillMount() {
+  //   if (this.props.user) {
+  //     this.props.fetchItems();
+  //   }
+  // }
   render() {
     return (
       <div className="App">
-
         <header className="App-header">
-          <Home />
+          <Switch>
+            <Route path="/home" component={ItemsList} />
+            <Route path="/(login|signup)" component={RegistrationForm} />
+            <Redirect to="/home" />
+          </Switch>
         </header>
-
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchItems: () => dispatch(actionCreators.fetchItems())
+//   };
+// };
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    null
+  )(App)
+);
