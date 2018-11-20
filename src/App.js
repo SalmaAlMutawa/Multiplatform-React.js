@@ -8,8 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Hi Mariam!</p>
+
         <CardItem />
+
       </div>
     );
   }
