@@ -507,7 +507,7 @@ input[type="button"].medium,
   padding-top: 10em;
   padding-bottom: 2em;
   background: url("../images/bg.jpg") no-repeat center top;
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);

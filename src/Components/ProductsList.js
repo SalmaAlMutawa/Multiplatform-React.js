@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import authors from "../data";
+import TopNavBar from "./Navigation/TopNavBar";
 // import { connect } from "react-redux";
 
 // Components
