@@ -1,41 +1,42 @@
 import React, { Component } from "react";
 import authors from "../data";
-import TopNavBar from "./Navigation/TopNavBar";
+
+
 // import { connect } from "react-redux";
 
 // Components
-// import AddAuthorCard from "./AddAuthorCard";
-// import AuthorCard from "./AuthorCard";
+import ItemCard from "./ItemCard";
 // import SearchBar from "./SearchBar";
 // import Loading from "./Loading";
 
-class ItemList extends Component {
+class ItemsList extends Component {
   render() {
-    // const { loading, filteredAuthors } = this.props;
+    // const { loading, filteredItems } = this.props;
 
-    // const authorCards = filteredAuthors.map(author => (
-    //   <AuthorCard key={author.first_name + author.last_name} author={author} />
-    // ));
+    const itemCards = authors.map(author => (
+      <ItemCard key={author.first_name + author.last_name} author={author} />
+    ));
 
     // if (loading) {
     //   return <Loading />;
     // } else {
-    return (
-      <div>
-        <h1>Product Cards Here</h1>
-      </div>
-    );
+
+    return <div className="container-responsive ">{itemCards}</div>;
+
     // }
   }
 }
 
 // const mapStateToProps = state => {
 //   return {
-//     user: state.rootAuth.user,
-//     loading: state.rootAuthors.loading,
-//     filteredAuthors: state.rootAuthors.filteredAuthors
+
+//     user: state.auth.user,
+//     items: state.items.items,
+//     loading: state.items.loading,
+//     filteredItems: state.items.filteredItems
 //   };
 // };
 
-// export default connect(mapStateToProps)(AuthorsList);
-export default ItemList;
+// export default connect(mapStateToProps)(ItemsList);
+export default ItemsList;
+
