@@ -15,7 +15,7 @@ class App extends Component {
   // }
   render() {
     return (
-      <div className="wrapper style1">
+      <div>
         <header>
           <Switch>
             <Route path="/home" component={ItemsList} />

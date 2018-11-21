@@ -18,7 +18,7 @@ class ItemCard extends Component {
                 <h3>title</h3>
                 <p>{this.props.author.first_name}</p>
                 <p>{this.props.author.last_name}</p>
-                <button className="button">More...</button>
+                <button >More...</button>
 
               </div>
             </section>

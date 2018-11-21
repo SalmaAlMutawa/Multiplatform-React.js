@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 class Cart extends Component {
   render() {
     return (
-      <div className="wrapper style1">
-        <div id="banner" className="container">
+      <div>
+        <div className="container">
           <table>
             <thead>
               <tr>
