@@ -11,10 +11,7 @@ class ItemDetail extends Component {
             <strong>Description:</strong> "this.props.item.description"
           </p>
 
-          <p>
-            It uses utility classNamees for typography and spacing to space
-            content out within the larger container.
-          </p>
+          <p>Product details</p>
 
           <button className="btn btn-outline-info btn-lg">Add to Cart</button>
         </div>
