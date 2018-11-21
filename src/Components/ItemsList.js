@@ -9,7 +9,7 @@ import TopNavBar from "./Navigation/TopNavBar";
 // import SearchBar from "./SearchBar";
 // import Loading from "./Loading";
 
-class ProductsList extends Component {
+class ItemList extends Component {
   render() {
     // const { loading, filteredAuthors } = this.props;
 
@@ -38,4 +38,4 @@ class ProductsList extends Component {
 // };
 
 // export default connect(mapStateToProps)(AuthorsList);
-export default ProductsList;
+export default ItemList;

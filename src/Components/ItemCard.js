@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class CardItem extends Component {
+class ItemCard extends Component {
   render() {
     return (
       <div id="extra">
@@ -28,4 +28,4 @@ class CardItem extends Component {
   }
 }
 
-export default CardItem;
+export default ItemCard;
