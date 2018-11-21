@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import authors from "../data";
+
+
 // import { connect } from "react-redux";
 
 // Components
@@ -18,13 +20,16 @@ class ItemsList extends Component {
     // if (loading) {
     //   return <Loading />;
     // } else {
+
     return <div className="container-responsive ">{itemCards}</div>;
+
     // }
   }
 }
 
 // const mapStateToProps = state => {
 //   return {
+
 //     user: state.auth.user,
 //     items: state.items.items,
 //     loading: state.items.loading,
@@ -34,3 +39,4 @@ class ItemsList extends Component {
 
 // export default connect(mapStateToProps)(ItemsList);
 export default ItemsList;
+

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
+
+
 class ItemCard extends Component {
   render() {
     return (
@@ -7,6 +10,7 @@ class ItemCard extends Component {
         <div className="container">
           <div className="row no-collapse-1">
             <section className="4u">
+
               <button className="image featured">
                 <img src="images/pic01.jpg" alt="" />
               </button>
@@ -15,6 +19,7 @@ class ItemCard extends Component {
                 <p>{this.props.author.first_name}</p>
                 <p>{this.props.author.last_name}</p>
                 <button className="button">More...</button>
+
               </div>
             </section>
           </div>
