@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 class ItemDetail extends Component {
   render() {
     return (
-      <div>
-        <div className="container">
-          <p>
-            I'm thinking the product's picture will be on the left side, anf the
-            item details will be on the right side
+      <div className="container">
+        <div className="jumbotron">
+          <h1 className="display-4">Details</h1>
+          <p className="lead">
+            <strong>Description:</strong> "this.props.item.description"
           </p>
-          <h2>Item Name</h2>
-          <h3>Description</h3>
-          <h3>Category</h3>
-          <h3>Price</h3>
+
+          <p>
+            It uses utility classNamees for typography and spacing to space
+            content out within the larger container.
+          </p>
+
+          <button className="btn btn-outline-info btn-lg">Add to Cart</button>
         </div>
       </div>
     );

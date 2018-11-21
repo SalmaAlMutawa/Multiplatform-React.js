@@ -8,14 +8,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("./images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-attachment: relative;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {

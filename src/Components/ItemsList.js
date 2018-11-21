@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import authors from "../data";
 
-
 // import { connect } from "react-redux";
 
 // Components
@@ -14,15 +13,21 @@ class ItemsList extends Component {
     // const { loading, filteredItems } = this.props;
 
     const itemCards = authors.map(author => (
-      <ItemCard key={author.first_name + author.last_name} author={author} />
+      <ItemCard
+        key={author.first_name + author.last_name + author.imageUrl}
+        author={author}
+      />
     ));
 
     // if (loading) {
     //   return <Loading />;
     // } else {
 
-    return <div className="container-responsive ">{itemCards}</div>;
-
+    return (
+      <div className="container-responsive">
+        <div className="row">{itemCards}</div>
+      </div>
+    );
     // }
   }
 }
@@ -39,4 +44,3 @@ class ItemsList extends Component {
 
 // export default connect(mapStateToProps)(ItemsList);
 export default ItemsList;
-
