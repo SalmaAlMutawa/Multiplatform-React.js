@@ -6,13 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 
 //styles
 import "./index.css";
-import "./css/skel.css";
-import "./css/style-mobile.css";
-import "./css/style-narrow.css";
-import "./css/style-narrower.css";
-import "./css/style-normal.css";
-import "./css/style-wide.css";
-import "./css/style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 
 //Extra Redux Stuff
 import { BrowserRouter } from "react-router-dom";

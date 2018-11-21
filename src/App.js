@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
-import "./App.css";
-
 //Commponents
 import Home from "./Components/Home";
 import RegistrationForm from "./Components/RegistrationForm";
@@ -17,10 +15,8 @@ class App extends Component {
   // }
   render() {
     return (
-
       <div className="wrapper style1">
-
-        <header className="App-header">
+        <header>
           <Switch>
             <Route path="/home" component={ItemsList} />
             <Route path="/(login|signup)" component={RegistrationForm} />
