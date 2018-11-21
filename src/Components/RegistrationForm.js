@@ -29,16 +29,16 @@ class RegistationForm extends Component {
     e.preventDefault();
     const type = this.props.match.url.substring(1);
     if (type === "login") {
-      this.props.login(this.state);
+      this.props.login(this.state, this.props.history);
     } else {
-      this.props.signup(this.state);
+      this.props.signup(this.state, this.props.history);
     }
   }
 
   render() {
-    if (this.props.user) {
-      return <Redirect to="/Hello" />;
-    }
+    // if (this.props.user) {
+    //   return <Redirect to="/Hello" />;
+    // }
     const type = this.props.match.url.substring(1);
 
     return (
@@ -127,8 +127,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signup: userData => dispatch(actionCreators.signup(userData)),
-  login: userData => dispatch(actionCreators.login(userData)),
+  signup: (userData, history) =>
+    dispatch(actionCreators.signup(userData, history)),
+  login: (userData, history) =>
+    dispatch(actionCreators.login(userData, history)),
   resetForm: () => dispatch(actionCreators.setErrors({}))
 });
 

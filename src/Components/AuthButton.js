@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 // Actions
-import * as actionCreators from "/Users/grumpy/Development/REACT/Chatr2.0-UI/src/store/actions";
+import * as actionCreators from "../Store/actions";
 
 class AuthButton extends Component {
   render() {

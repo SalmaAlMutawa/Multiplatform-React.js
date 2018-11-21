@@ -6,7 +6,7 @@ import * as actionTypes from "./actionTypes";
 import { setErrors } from "./errors";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/" //local
+  baseURL: "http://127.0.0.1:8000/api/" //local
 });
 
 const setAuthToken = token => {
@@ -38,7 +38,7 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = userData => {
+export const login = (userData, history) => {
   return dispatch => {
     instance
       .post("/login/", userData) //local
@@ -47,7 +47,9 @@ export const login = userData => {
         const decodedUser = jwt_decode(user.token);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
+        history.push("/");
       })
+      //.catch(err => console.error(err));
       .catch(err => {
         dispatch(setErrors(err.response.data));
       });
@@ -57,16 +59,15 @@ export const login = userData => {
 export const signup = (userData, history) => {
   return dispatch => {
     instance
-      .post("/signup/", userData) //local
+      .post("/register/", userData) //local
       .then(res => res.data)
       .then(user => {
-        const decodedUser = jwt_decode(user.token);
-        setAuthToken(user.token);
-        dispatch(setCurrentUser(decodedUser));
-        history.push("/");
+        dispatch(login(userData, history));
       })
+      //.catch(err => console.error(err));
       .catch(err => {
-        dispatch(setErrors(err.response.data));
+        if (err.response) dispatch(setErrors(err.response.data));
+        else console.log(err);
       });
   };
 };
