@@ -4,28 +4,48 @@ import { Link } from "react-router-dom";
 class Cart extends Component {
   render() {
     return (
-      <div>
+      <div
+        className="jumbotron"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+      >
         <div className="container">
-          <table>
+          <table class="table">
             <thead>
               <tr>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col" />
               </tr>
             </thead>
             <tbody>
-              <td>"item name"</td>
-              <td>"quantity"</td>
-              <td>"item price"</td>
-              <td>
-                <button>Remove</button>
-              </td>
+              <tr>
+                <td>this.props.item.name</td>
+                <td>this.props.item.quantity</td>
+                <td>this.props.item.price</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>item.name</td>
+                <td>item.quantity</td>
+                <td>item.price</td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <th colspan="2">Total</th>
+                <td>total KD</td>
+              </tr>
             </tbody>
-            <tr>
-              <th colspan="2">Total</th>
-              <td>"this.props.total"</td>
-            </tr>
           </table>
         </div>
       </div>

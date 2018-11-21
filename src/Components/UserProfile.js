@@ -4,17 +4,86 @@ import { Link } from "react-router-dom";
 class UserProfile extends Component {
   render() {
     return (
-      <div>
+      <div
+        className="jumbotron"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+      >
         <div className="container">
-          <h3>First Name: </h3>
-          <h3>Last Name: </h3>
-          <h3>Username: </h3>
-          <h3>Email: </h3>
-          <h3>Shipping Address: </h3>
-          <div className="row">
-            <button type="button">Edit Profile</button>
-            <button type="button">Change Password</button>
-            <button type="button">Save</button>
+          <form>
+            <div className="form-group row">
+              <label for="firstName" className="col-sm-2 col-form-label">
+                First Name
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  value="this.props.user.first_name"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="lastName" className="col-sm-2 col-form-label">
+                Last Name
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  value="this.props.user.last_name"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </div>
+            </div>
+
+            <div className="form-group row">
+              <label for="username" className="col-sm-2 col-form-label">
+                Username
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  value="this.props.user.username"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="email" className="col-sm-2 col-form-label">
+                Email
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  value="this.props.user.email"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="shippingAddress" className="col-sm-2 col-form-label">
+                Shipping Address
+              </label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  className="form-control"
+                  value="this.props.user.shipping_address"
+                  style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                />
+              </div>
+            </div>
+          </form>
+          <div className="container text-center">
+            <button type="button" class="btn btn-outline-warning btn-lg">
+              Change Password
+            </button>
+            <button type="button" class="btn btn-outline-info btn-lg mx-3">
+              Edit Profile
+            </button>
           </div>
         </div>
       </div>

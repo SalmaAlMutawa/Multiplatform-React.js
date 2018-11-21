@@ -40,14 +40,19 @@ class RegistationForm extends Component {
     //   return <Redirect to="/Hello" />;
     // }
     const type = this.props.match.url.substring(1);
+
     return (
-      <div className="card col-6 mx-auto p-0 mt-5">
-        <div className="card-body">
-          <h5 className="card-title mb-4">
-            {type === "login"
-              ? "Login to send messages"
-              : "Register an account"}
-          </h5>
+      <div
+        className="jumbotron"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+      >
+        <div className="container">
+          {type === "login" ? (
+            <h2>Login to Checkout</h2>
+          ) : (
+            <h2>Signup to Order</h2>
+          )}
+
           <form onSubmit={this.submitHandler} noValidate>
             {/* {authStore.errors.length > 0 && (
             <div className="alert alert-danger" role="alert">
@@ -55,6 +60,7 @@ class RegistationForm extends Component {
             </div>
           )} */}
             <div className="form-group">
+              <label for="username">Username</label>
               <input
                 className="form-control"
                 type="text"
@@ -64,12 +70,14 @@ class RegistationForm extends Component {
                 onChange={this.changeHandler}
               />
             </div>
+
             {this.props.errors.username && (
               <div className="alert alert-danger">
                 {this.props.errors.username}
               </div>
             )}
             <div className="form-group">
+              <label for="password">Password</label>
               <input
                 className="form-control"
                 type="password"
@@ -80,32 +88,33 @@ class RegistationForm extends Component {
               />
             </div>
             {this.props.errors.password && (
-              <div className="alert alert-danger">
+              <div className="invalid-feedback">
                 {this.props.errors.password}
               </div>
             )}
             {this.props.errors.non_field_errors && (
-              <div className="alert alert-danger">
+              <div className="invalid-feedback">
                 {this.props.errors.non_field_errors}
               </div>
             )}
+          </form>
+        </div>
+        <div className="row text-right">
+          <div className="container text-center">
             <input
-              className="btn btn-primary"
+              className="btn btn-small btn-info btn-lg mx-4"
               type="submit"
               value={type.replace(/^\w/, c => c.toUpperCase())}
             />
-          </form>
-        </div>
-        <div className="card-footer">
-          <Link
-            to={type === "login" ? "/signup" : "/login"}
-            className="btn btn-small btn-link"
-            // onClick={() => (authStore.errors = [])}
-          >
-            {type === "login"
-              ? "register an account"
-              : "login with an existing account"}
-          </Link>
+
+            <Link
+              to={type === "login" ? "/signup" : "/login"}
+              className="btn btn-small btn-info btn-lg"
+              // onClick={() => (authStore.errors = [])}
+            >
+              {type === "login" ? "Signup" : "Login"}
+            </Link>
+          </div>
         </div>
       </div>
     );
