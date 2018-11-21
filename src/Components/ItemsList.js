@@ -24,7 +24,7 @@ class ItemsList extends Component {
     // } else {
 
     return (
-      <div className="container-responsive">
+      <div className="container m-3">
         <div className="row">{itemCards}</div>
       </div>
     );

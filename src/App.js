@@ -11,6 +11,7 @@ import ItemsList from "./Components/ItemsList";
 import ItemDetail from "./Components/ItemDetail";
 import UserProfile from "./Components/UserProfile";
 import Cart from "./Components/Cart";
+import TopNavBar from "./Components/Navigation/TopNavBar";
 
 class App extends Component {
   // componentWillMount() {
@@ -22,18 +23,17 @@ class App extends Component {
     return (
       <div className="App-header">
         <div className="container">
-          <header>
-            <Switch>
-              <Route path="/home" component={Home} />
-              <Route path="/(login|signup)" component={RegistrationForm} />
-              <Route path="/list" component={ItemsList} />
-              <Route path="/item/:name" component={ItemDetail} />
-              <Route path="/profile/:name" component={UserProfile} />
-              <Route path="/cart" component={Cart} />
+          <TopNavBar />
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/(login|signup)" component={RegistrationForm} />
+            <Route path="/list" component={ItemsList} />
+            <Route path="/item/:name" component={ItemDetail} />
+            <Route path="/profile/:name" component={UserProfile} />
+            <Route path="/cart" component={Cart} />
 
-              <Redirect to="/home" />
-            </Switch>
-          </header>
+            <Redirect to="/home" />
+          </Switch>
         </div>
       </div>
     );
