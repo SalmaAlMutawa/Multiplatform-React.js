@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import authors from "../data";
 
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 // Components
 import ItemCard from "./ItemCard";
@@ -12,11 +11,8 @@ class ItemsList extends Component {
   render() {
     // const { loading, filteredItems } = this.props;
 
-    const itemCards = authors.map(author => (
-      <ItemCard
-        key={author.first_name + author.last_name + author.imageUrl}
-        author={author}
-      />
+    const itemCards = this.props.items.map(item => (
+      <ItemCard key={item.name} item={item} />
     ));
 
     // if (loading) {
@@ -32,15 +28,16 @@ class ItemsList extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user,
+    items: state.items.items,
+    loading: state.items.loading
+    // filteredItems: state.items.filteredItems
+  };
+};
 
-//     user: state.auth.user,
-//     items: state.items.items,
-//     loading: state.items.loading,
-//     filteredItems: state.items.filteredItems
-//   };
-// };
-
-// export default connect(mapStateToProps)(ItemsList);
-export default ItemsList;
+export default connect(
+  mapStateToProps,
+  null
+)(ItemsList);

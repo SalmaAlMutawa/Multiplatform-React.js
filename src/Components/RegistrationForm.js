@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 // Actions
@@ -60,7 +60,7 @@ class RegistationForm extends Component {
             </div>
           )} */}
             <div className="form-group">
-              <label for="username">Username</label>
+              <label>Username</label>
               <input
                 className="form-control"
                 type="text"
@@ -77,7 +77,7 @@ class RegistationForm extends Component {
               </div>
             )}
             <div className="form-group">
-              <label for="password">Password</label>
+              <label>Password</label>
               <input
                 className="form-control"
                 type="password"

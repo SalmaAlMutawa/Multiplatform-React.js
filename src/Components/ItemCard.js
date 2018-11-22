@@ -7,19 +7,17 @@ class ItemCard extends Component {
     return (
       <div className="col-md-4">
         <div className="card my-2">
-          <div className="card-header">this.props.item.category</div>
+          <div className="card-header">{this.props.item.category}</div>
           <div className="card-body">
             <img
-              class="card-img-top"
-              src={this.props.author.imageUrl}
-              alt="Card image cap"
+              className="card-img-top"
+              src={this.props.item.image}
+              alt={this.props.item.name}
             />
-            <h3 className="card-title">
-              {this.props.author.first_name} {this.props.author.last_name}
-            </h3>
-            <p className="card-text">Price:</p>
+            <h3 className="card-title">{this.props.item.name}</h3>
+            <p className="card-text">Price: {this.props.item.price} KD</p>
             <div className="text-center">
-              <Link to="/item/:name">
+              <Link to={`/items/${this.props.item.id}`}>
                 <button className="btn btn-outline-info btn-lg mx-3">
                   More..
                 </button>

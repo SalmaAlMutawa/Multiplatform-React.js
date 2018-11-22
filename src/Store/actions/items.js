@@ -9,7 +9,7 @@ const instance = axios.create({
 export const fetchItems = () => {
   return dispatch => {
     instance
-      .get("/api/items/") //local
+      .get("/api/list/") //local
       .then(res => res.data)
       .then(items =>
         dispatch({ type: actionTypes.FETCH_ITEMS, payload: items })

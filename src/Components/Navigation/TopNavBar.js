@@ -29,7 +29,7 @@ class TopNavBar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 Cart
