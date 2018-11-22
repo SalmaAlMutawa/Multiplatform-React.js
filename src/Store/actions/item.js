@@ -14,7 +14,7 @@ export const fetchItemDetail = itemID => {
   return dispatch => {
     dispatch(setLoading());
     instance
-      .get(`/api/items/${itemID}/`) //local
+      .get(`/api/${itemID}/detail/`) //local
       .then(res => res.data)
       .then(item =>
         dispatch({
