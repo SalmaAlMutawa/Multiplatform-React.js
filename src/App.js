@@ -7,7 +7,8 @@ import "./App.css";
 
 //Commponents
 import Home from "./Components/Home";
-import RegistrationForm from "./Components/RegistrationForm";
+import SignupForm from "./Components/SignupForm";
+import LoginForm from "./Components/LoginForm";
 import ItemsList from "./Components/ItemsList";
 import ItemDetail from "./Components/ItemDetail";
 import UserProfile from "./Components/UserProfile";
@@ -23,18 +24,20 @@ class App extends Component {
   render() {
     return (
       <div className="App-header">
-        <div className="container">
+        <div className="container m-5">
           <TopNavBar />
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/(login|signup)" component={RegistrationForm} />
-            <Route path="/list" component={ItemsList} />
-            <Route path="/items/:item_ID" component={ItemDetail} />
-            <Route path="/profile/:name" component={UserProfile} />
-            <Route path="/cart" component={Cart} />
-
-            <Redirect to="/home" />
-          </Switch>
+          <div className="container m-5">
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Route path="/signup" component={SignupForm} />
+              <Route path="/login" component={LoginForm} />
+              <Route path="/list" component={ItemsList} />
+              <Route path="/items/:item_ID" component={ItemDetail} />
+              <Route path="/profile/:name" component={UserProfile} />
+              <Route path="/cart" component={Cart} />
+              <Redirect to="/home" />
+            </Switch>
+          </div>
         </div>
       </div>
     );

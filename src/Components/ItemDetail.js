@@ -37,7 +37,36 @@ class ItemDetail extends Component {
                   <strong>Price: </strong>
                   {this.props.item.price}
                 </h3>
-
+                <div className="row">
+                  <form>
+                    <div className="form-row align-items-center">
+                      <div className="col-auto my-1">
+                        <label
+                          className="mr-sm-2 sr-only"
+                          for="inlineFormCustomSelect"
+                        >
+                          Preference
+                        </label>
+                        <select
+                          className="custom-select mr-sm-2"
+                          id="inlineFormCustomSelect"
+                        >
+                          <option selected>Quantity</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="3">4</option>
+                          <option value="3">5</option>
+                          <option value="3">6</option>
+                          <option value="3">7</option>
+                          <option value="3">8</option>
+                          <option value="3">9</option>
+                          <option value="3">10</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
                 <button className="btn btn-outline-info btn-lg float-right">
                   Add to Cart
                 </button>

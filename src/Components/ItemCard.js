@@ -19,12 +19,42 @@ class ItemCard extends Component {
             <div className="text-center">
               <Link to={`/items/${this.props.item.id}`}>
                 <button className="btn btn-outline-info btn-lg mx-3">
-                  More..
+                  View
                 </button>
               </Link>
-              <button className="btn btn-outline-info btn-lg">
-                Add to Cart
-              </button>
+              <div className="row">
+                <form className="form-inline">
+                  <div className="form-row align-items-center">
+                    <div className="col-auto my-1">
+                      <label
+                        className="mr-sm-2 sr-only"
+                        for="inlineFormCustomSelect"
+                      >
+                        Preference
+                      </label>
+                      <select
+                        className="custom-select mr-sm-2"
+                        id="inlineFormCustomSelect"
+                      >
+                        <option selected>Quantity</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                        <option value="3">6</option>
+                        <option value="3">7</option>
+                        <option value="3">8</option>
+                        <option value="3">9</option>
+                        <option value="3">10</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+                <button className="btn btn-outline-info btn-lg">
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>

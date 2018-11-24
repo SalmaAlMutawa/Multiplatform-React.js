@@ -9,7 +9,7 @@ class Cart extends Component {
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
       >
         <div className="container">
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Item</th>
@@ -24,7 +24,7 @@ class Cart extends Component {
                 <td>this.props.item.quantity</td>
                 <td>this.props.item.price</td>
                 <td>
-                  <button type="button" class="btn btn-outline-danger">
+                  <button type="button" className="btn btn-outline-danger">
                     Remove
                   </button>
                 </td>
@@ -35,14 +35,14 @@ class Cart extends Component {
                 <td>item.quantity</td>
                 <td>item.price</td>
                 <td>
-                  <button type="button" class="btn btn-outline-danger">
+                  <button type="button" className="btn btn-outline-danger">
                     Remove
                   </button>
                 </td>
               </tr>
 
               <tr>
-                <th colspan="2">Total</th>
+                <th colSpan="2">Total</th>
                 <td>total KD</td>
               </tr>
             </tbody>

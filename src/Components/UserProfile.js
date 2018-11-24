@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class UserProfile extends Component {
   render() {
@@ -18,7 +19,7 @@ class UserProfile extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  value="this.props.user.first_name"
+                  value={this.props.user.first_name}
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
                 />
               </div>
@@ -31,7 +32,7 @@ class UserProfile extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  value="this.props.user.last_name"
+                  value={this.props.user.last_name}
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
                 />
               </div>
@@ -45,7 +46,7 @@ class UserProfile extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  value="this.props.user.username"
+                  value={this.props.user.username}
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
                 />
               </div>
@@ -58,7 +59,7 @@ class UserProfile extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  value="this.props.user.email"
+                  value={this.props.user.email}
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
                 />
               </div>
@@ -90,4 +91,9 @@ class UserProfile extends Component {
     );
   }
 }
-export default UserProfile;
+
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+export default connect(mapStateToProps)(UserProfile);

@@ -1,7 +1,19 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../../Store/actions";
 
 class TopNavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.logoutFunc = this.logoutFunc.bind(this);
+  }
+
+  logoutFunc() {
+    this.props.logout();
+    return <Redirect to="/list" />;
+  }
+
   render() {
     return (
       <nav
@@ -35,45 +47,58 @@ class TopNavBar extends Component {
                 Cart
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="/profile/:name"
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-toggle="dropdown"
-              >
-                this.props.user.first_name
-              </Link>
-
-              <div
-                className="dropdown-menu"
-                style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
-              >
-                <Link
-                  to="#"
-                  className="dropdown-item"
-                  style={{ color: "white" }}
-                >
-                  Previous Orders
-                </Link>
+            {this.props.user ? (
+              <li className="nav-item dropdown">
                 <Link
                   to="/profile/:name"
-                  className="dropdown-item"
-                  style={{ color: "white" }}
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-toggle="dropdown"
                 >
-                  View Profile
+                  {this.props.user.username}
                 </Link>
-                <Link
-                  to="/home"
-                  className="dropdown-item"
-                  style={{ color: "white" }}
+                <div
+                  className="dropdown-menu"
+                  style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
                 >
-                  Logout
-                </Link>
+                  <Link
+                    to="#"
+                    className="dropdown-item"
+                    style={{ color: "white" }}
+                  >
+                    Previous Orders
+                  </Link>
+                  <Link
+                    to="/profile/:name"
+                    className="dropdown-item"
+                    style={{ color: "white" }}
+                  >
+                    View Profile
+                  </Link>
+                  <li
+                    className="dropdown-item"
+                    style={{ color: "white" }}
+                    onClick={this.logoutFunc}
+                  >
+                    Logout
+                  </li>
+                </div>
+              </li>
+            ) : (
+              <div className="collapse navbar-collapse" id="navbarResponsive">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup">
+                    Signup
+                  </Link>
+                </li>
               </div>
-            </li>
+            )}
           </ul>
         </div>
       </nav>
@@ -81,4 +106,15 @@ class TopNavBar extends Component {
   }
 }
 
-export default TopNavBar;
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(actionCreators.logout())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TopNavBar);
