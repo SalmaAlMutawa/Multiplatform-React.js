@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    this.props.login(this.state);
+    this.props.login(this.state, this.props.history);
   }
 
   render() {

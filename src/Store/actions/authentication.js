@@ -45,13 +45,15 @@ export const login = (userData, history) => {
       .then(res => res.data)
       .then(user => {
         const decodedUser = jwt_decode(user.token);
+        console.log(decodedUser);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/");
+        history.push("/list");
       })
       //.catch(err => console.error(err));
       .catch(err => {
-        dispatch(setErrors(err.response.data));
+        if (err.response) dispatch(setErrors(err.response.data));
+        else console.error(err);
       });
   };
 };

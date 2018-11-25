@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 class UserProfile extends Component {
   render() {
+    console.log(this.props.user);
     return (
       <div
         className="jumbotron"
