@@ -11,7 +11,7 @@ const instance = axios.create({
 export const addAddress = userData => {
   return dispatch => {
     instance
-      .post("/address/", userData) //local
+      .post("address/", userData) //local
       .then(res => res.data)
       .then(createdAddress =>
         dispatch({ type: actionTypes.ADD_ADDRESS, payload: createdAddress })

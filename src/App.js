@@ -14,6 +14,7 @@ import ItemDetail from "./Components/ItemDetail";
 import UserProfile from "./Components/UserProfile";
 import Cart from "./Components/Cart";
 import Checkout from "./Components/Checkout";
+import PrivateRoute from "./Components/PrivateRoute";
 import TopNavBar from "./Components/Navigation/TopNavBar";
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
               <Route path="/items/:item_ID" component={ItemDetail} />
               <Route path="/profile/" component={UserProfile} />
               <Route path="/cart" component={Cart} />
-              <Route path="/checkout" component={Checkout} />
+              <PrivateRoute path="/checkout" component={Checkout} />
               <Redirect to="/home" />
             </Switch>
           </div>
