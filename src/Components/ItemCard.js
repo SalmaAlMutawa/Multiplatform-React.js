@@ -3,6 +3,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class ItemCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantity: 1
+    };
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+
+  changeHandler(event) {
+    this.setState({ quantity: event.target.value });
+  }
+
+  handleAdd() {
+    const { quantity } = this.state;
+    const itemOrder = {
+      itemID: this.props.item.id,
+      quantity: parseInt(quantity)
+    };
+    this.props.addToCart(itemOrder);
+  }
   render() {
     return (
       <div className="col-md-4">
@@ -26,17 +46,13 @@ class ItemCard extends Component {
                 <form className="form-inline">
                   <div className="form-row align-items-center">
                     <div className="col-auto my-1">
-                      <label
-                        className="mr-sm-2 sr-only"
-                        for="inlineFormCustomSelect"
-                      >
-                        Preference
-                      </label>
+                      <label className="mr-sm-2 sr-only">Preference</label>
                       <select
                         className="custom-select mr-sm-2"
                         id="inlineFormCustomSelect"
+                        onChange={this.changeHandler}
                       >
-                        <option selected>Quantity</option>
+                        <option defaultValue="1">Quantity</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

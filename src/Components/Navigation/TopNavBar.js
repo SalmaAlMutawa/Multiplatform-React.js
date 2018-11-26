@@ -76,13 +76,13 @@ class TopNavBar extends Component {
                   >
                     View Profile
                   </Link>
-                  <li
+                  <span
                     className="dropdown-item"
                     style={{ color: "white" }}
                     onClick={this.logoutFunc}
                   >
                     Logout
-                  </li>
+                  </span>
                 </div>
               </li>
             ) : (
