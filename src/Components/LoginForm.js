@@ -61,10 +61,10 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-              {errors.email && (
-                <div className="invalid-feedback">{errors.email}</div>
-              )}
             </div>
+            {errors.email && (
+              <div className="invalid-feedback">{errors.email}</div>
+            )}
 
             <div className="form-group">
               <label>Username</label>
@@ -78,10 +78,10 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-              {errors.username && (
-                <div className="invalid-feedback">{errors.username}</div>
-              )}
             </div>
+            {errors.username && (
+              <div className="invalid-feedback">{errors.username}</div>
+            )}
 
             <div className="form-group">
               <label>Password</label>
@@ -95,11 +95,11 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-              {errors.password && (
-                <div className="invalid-feedback">{errors.password}</div>
-              )}
             </div>
-            <div classname="row">
+            {errors.password && (
+              <div className="invalid-feedback">{errors.password}</div>
+            )}
+            <div className="row">
               <button type="submit" className="btn btn-info btn-lg mx-4">
                 Login
               </button>
