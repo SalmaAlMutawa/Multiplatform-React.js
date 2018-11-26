@@ -1,43 +1,37 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  list: [],
-  num: 0
+  list: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.ADD_TO_CART:
-      let choice = action.payload;
-      let item = state.list.find(
-        item => item.name === choice.name && item.price === choice.price
+    case actionTypes.ADD_ITEM:
+      let itemOrder = action.payload;
+      let listItem = state.list.find(
+        listItem => listItem.itemID === itemOrder.itemID
       );
       let list;
-      if (item) {
-        item.quantity++;
+      if (listItem) {
+        listItem.quantity += itemOrder.quantity;
         list = [...state.list];
       } else {
-        list = state.list.concat(choice);
+        list = state.list.concat(itemOrder);
       }
       return {
         ...state,
-        list,
-        num: state.num + 1
+        list: list
       };
-
     case actionTypes.REMOVE_ITEM:
       return {
         ...state,
-        list: state.list.filter(item => item !== action.payload),
-        num: state.num - 1
+        list: state.list.filter(item => item !== action.payload)
       };
-
     case actionTypes.CHECKOUT:
       return {
         ...state,
         list: []
       };
-
     default:
       return state;
   }
