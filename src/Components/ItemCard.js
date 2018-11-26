@@ -38,13 +38,16 @@ class ItemCard extends Component {
             <p className="card-text">Price: {this.props.item.price} KD</p>
             <div className="text-center">
               <Link to={`/items/${this.props.item.id}`}>
-                <button className="btn btn-outline-info btn-lg mx-3">
+                <button className="btn btn-outline-info btn-lg mx-3 my-2">
                   View
                 </button>
               </Link>
-              <div className="row">
+              <div className="row ">
                 <form className="form-inline">
-                  <div className="form-row align-items-center">
+                  <div
+                    className="form-row align-items-center"
+                    style={{ fontSize: "18px" }}
+                  >
                     <div className="col-auto my-1">
                       <label className="mr-sm-2 sr-only">Preference</label>
                       <select

@@ -62,7 +62,12 @@ class ItemDetail extends Component {
                 </h3>
                 <div className="row">
                   <form>
-                    <div className="form-row align-items-center">
+                    <div
+                      className="form-row align-items-center"
+                      style={{
+                        fontSize: "18px"
+                      }}
+                    >
                       <div className="col-auto my-1">
                         <label className="mr-sm-2 sr-only">Preference</label>
                         <select
