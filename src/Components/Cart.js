@@ -1,18 +1,22 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as actionCreators from "../Store/actions";
 import { connect } from "react-redux";
 
 class Cart extends Component {
   render() {
+    let subtotal = 0;
     const itemList = this.props.list.map(item => {
       let count = 1;
       let x = this.props.items.find(x => x.id === item.itemID);
+      let total = x.price * item.quantity;
+      subtotal += total;
       return (
         <tr key={item.itemID + count + 1}>
           <td>{x.name}</td>
           <td>{item.quantity}</td>
-          <td>{x.price}</td>
+          <td>{x.price} KD</td>
+          <td>{total} KD</td>
           <td>
             <button
               type="button"
@@ -37,18 +41,20 @@ class Cart extends Component {
                 <th scope="col">Item</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
+                <th scope="col">Total</th>
                 <th scope="col" />
               </tr>
             </thead>
             <tbody>
               {itemList}
               <tr>
-                <th colSpan="2">Total</th>
-                <td>total KD</td>
+                <th colSpan="3">Subtotal</th>
+                <td>{subtotal} KD</td>
               </tr>
             </tbody>
           </table>
 
+          {!this.props.user && <Redirect to="/login" />}
           <button
             className="btn btn-info"
             onClick={() => this.props.checkout(this.props.list)}
