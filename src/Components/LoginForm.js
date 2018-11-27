@@ -34,7 +34,11 @@ class LoginForm extends Component {
     const { user, errors } = this.props;
 
     if (user) {
-      return <Redirect to="/cart" />;
+      if (this.props.cart) {
+        return <Redirect to="/checkout" />;
+      } else {
+        return <Redirect to="/list" />;
+      }
     }
 
     return (
@@ -116,7 +120,8 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  errors: state.errors
+  errors: state.errors,
+  cart: state.cart.list
 });
 
 const mapDispatchToProps = dispatch => ({
