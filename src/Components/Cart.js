@@ -2,31 +2,27 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import * as actionCreators from "../Store/actions";
 import { connect } from "react-redux";
+import OrderItemRow from "./OrderItemRow";
 
 class Cart extends Component {
+  getSubTotal() {
+    let subTotal = 0;
+    this.props.list.forEach(
+      element => (subTotal += element.itemPrice * element.quantity)
+    );
+    return subTotal;
+  }
   render() {
-    let subtotal = 0;
-    const itemList = this.props.list.map(item => {
-      let count = 1;
-      let x = this.props.items.find(x => x.id === item.itemID);
-      let total = x.price * item.quantity;
-      subtotal += total;
+    const itemsList = this.props.list.map(item => {
+      let count = 0;
       return (
-        <tr key={item.itemID + count + 1}>
-          <td>{x.name}</td>
-          <td>{item.quantity}</td>
-          <td>{x.price} KD</td>
-          <td>{total} KD</td>
-          <td>
-            <button
-              type="button"
-              className="btn btn-outline-danger"
-              onClick={() => this.props.removeItemFromCart(item)}
-            >
-              Remove
-            </button>
-          </td>
-        </tr>
+        <OrderItemRow
+          key={(count += 1)}
+          item={item}
+          items={this.props.items}
+          removeItemFromCart={this.props.removeItemFromCart}
+          match={this.props.match}
+        />
       );
     });
     return (
@@ -46,16 +42,20 @@ class Cart extends Component {
               </tr>
             </thead>
             <tbody>
-              {itemList}
+              {itemsList}
               <tr>
                 <th colSpan="3">Subtotal</th>
-                <td>{subtotal} KD</td>
+                <td>{this.getSubTotal()} KD</td>
               </tr>
             </tbody>
           </table>
-          <Link to="/checkout">
-            <button className="btn btn-info btn-lg">Proceed to Checkout</button>
-          </Link>
+          {this.props.match === "checkout" ? null : (
+            <Link to="/checkout">
+              <button className="btn btn-info btn-lg">
+                Proceed to Checkout
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     );

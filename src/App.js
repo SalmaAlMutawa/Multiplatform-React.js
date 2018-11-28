@@ -21,6 +21,7 @@ class App extends Component {
   componentWillMount() {
     // if (this.props.user) {
     this.props.fetchItems();
+    this.props.fetchOrders();
     // }
   }
   render() {
@@ -53,7 +54,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchItems: () => dispatch(actionCreators.fetchItems())
+    fetchItems: () => dispatch(actionCreators.fetchItems()),
+    fetchOrders: () => dispatch(actionCreators.fetchOrders())
   };
 };
 

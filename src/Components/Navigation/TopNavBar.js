@@ -50,7 +50,7 @@ class TopNavBar extends Component {
             {this.props.user ? (
               <li className="nav-item dropdown">
                 <Link
-                  to="/profile/:name"
+                  to="/profile/"
                   className="nav-link dropdown-toggle"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -70,7 +70,7 @@ class TopNavBar extends Component {
                     Previous Orders
                   </Link>
                   <Link
-                    to="/profile/:name"
+                    to="/profile/"
                     className="dropdown-item"
                     style={{ color: "white" }}
                   >
