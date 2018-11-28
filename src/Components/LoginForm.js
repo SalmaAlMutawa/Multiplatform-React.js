@@ -56,7 +56,7 @@ class LoginForm extends Component {
             <div className="form-group">
               <label>Email</label>
               <input
-                className="form-control"
+                className={`form-control ${errors.email && "is-invalid"}`}
                 type="text"
                 id="email"
                 placeholder="Email"
@@ -65,15 +65,13 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-            </div>
-            {errors.email && (
               <div className="invalid-feedback">{errors.email}</div>
-            )}
+            </div>
 
             <div className="form-group">
               <label>Username</label>
               <input
-                className="form-control"
+                className={`form-control ${errors.username && "is-invalid"}`}
                 type="text"
                 id="username"
                 placeholder="Username"
@@ -82,15 +80,13 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-            </div>
-            {errors.username && (
               <div className="invalid-feedback">{errors.username}</div>
-            )}
+            </div>
 
             <div className="form-group">
               <label>Password</label>
               <input
-                className="form-control"
+                className={`form-control ${errors.password && "is-invalid"}`}
                 type="password"
                 id="password"
                 placeholder="Password"
@@ -99,10 +95,9 @@ class LoginForm extends Component {
                 required
                 onChange={this.changeHandler}
               />
-            </div>
-            {errors.password && (
               <div className="invalid-feedback">{errors.password}</div>
-            )}
+            </div>
+
             <div className="row">
               <button type="submit" className="btn btn-info btn-lg mx-4">
                 Login

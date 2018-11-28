@@ -13,3 +13,5 @@ export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CHECKOUT = "CHECKOUT";
 
 export const ADD_ADDRESS = "ADD_ADDRESS";
+
+export const FETCH_ORDERS = "FETCH_ORDERS";

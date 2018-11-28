@@ -12,6 +12,7 @@ class Checkout extends Component {
       return <Redirect to="/login" />;
     }
   }
+
   render() {
     return (
       <div className="container">
@@ -20,7 +21,7 @@ class Checkout extends Component {
         </div>
 
         <div>
-          <Cart />
+          <Cart match={this.props.match.url.substring(1)} />
         </div>
         <button
           className="btn btn-info btn-lg"

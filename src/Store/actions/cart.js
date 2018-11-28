@@ -22,12 +22,6 @@ export const removeItemFromCart = item => dispatch => {
   });
 };
 
-// export const checkout = () => dispatch => {
-//   dispatch({
-//     type: actionTypes.CHECKOUT
-//   });
-// };
-
 export const checkout = newOrder => {
   return dispatch => {
     instance

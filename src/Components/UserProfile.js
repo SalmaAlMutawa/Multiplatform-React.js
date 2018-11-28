@@ -16,9 +16,7 @@ class UserProfile extends Component {
           <div className="container">
             <form>
               <div className="form-group row">
-                <label for="firstName" className="col-sm-2 col-form-label">
-                  First Name
-                </label>
+                <label className="col-sm-2 col-form-label">First Name</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -29,9 +27,7 @@ class UserProfile extends Component {
                 </div>
               </div>
               <div className="form-group row">
-                <label for="lastName" className="col-sm-2 col-form-label">
-                  Last Name
-                </label>
+                <label className="col-sm-2 col-form-label">Last Name</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -43,9 +39,7 @@ class UserProfile extends Component {
               </div>
 
               <div className="form-group row">
-                <label for="username" className="col-sm-2 col-form-label">
-                  Username
-                </label>
+                <label className="col-sm-2 col-form-label">Username</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -56,9 +50,7 @@ class UserProfile extends Component {
                 </div>
               </div>
               <div className="form-group row">
-                <label for="email" className="col-sm-2 col-form-label">
-                  Email
-                </label>
+                <label className="col-sm-2 col-form-label">Email</label>
                 <div className="col-sm-10">
                   <input
                     type="text"
@@ -70,10 +62,13 @@ class UserProfile extends Component {
               </div>
             </form>
             <div className="container text-center">
-              <button type="button" class="btn btn-outline-warning btn-lg">
+              <button type="button" className="btn btn-outline-warning btn-lg">
                 Change Password
               </button>
-              <button type="button" class="btn btn-outline-info btn-lg mx-3">
+              <button
+                type="button"
+                className="btn btn-outline-info btn-lg mx-3"
+              >
                 Edit Profile
               </button>
             </div>
