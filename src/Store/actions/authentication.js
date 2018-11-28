@@ -48,7 +48,6 @@ export const login = (userData, history) => {
         console.log(decodedUser);
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
-        history.push("/list");
       })
       //.catch(err => console.error(err));
       .catch(err => {

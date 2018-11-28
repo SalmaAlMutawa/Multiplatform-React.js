@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import * as actionCreators from "../Store/actions";
 import { connect } from "react-redux";
 
@@ -53,14 +53,9 @@ class Cart extends Component {
               </tr>
             </tbody>
           </table>
-
-          {!this.props.user && <Redirect to="/login" />}
-          <button
-            className="btn btn-info"
-            onClick={() => this.props.checkout(this.props.list)}
-          >
-            Checkout
-          </button>
+          <Link to="/checkout">
+            <button className="btn btn-info btn-lg">Proceed to Checkout</button>
+          </Link>
         </div>
       </div>
     );

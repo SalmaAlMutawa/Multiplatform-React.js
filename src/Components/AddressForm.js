@@ -46,6 +46,7 @@ class AddressForm extends Component {
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
       >
         <div className="container">
+          <h3>Billing Address</h3>
           <form onSubmit={this.submitHandler} noValidate>
             <div className="row">
               <div className="col-md-8">
