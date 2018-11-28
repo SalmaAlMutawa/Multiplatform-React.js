@@ -26,6 +26,8 @@ class ItemDetail extends Component {
     const { quantity } = this.state;
     const itemOrder = {
       itemID: this.props.item.id,
+      itemName: this.props.item.name,
+      itemPrice: this.props.item.price,
       quantity: parseInt(quantity)
     };
     this.props.addToCart(itemOrder);
