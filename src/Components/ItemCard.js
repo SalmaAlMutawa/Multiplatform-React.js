@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../Store/actions";
 
 class ItemCard extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ItemCard extends Component {
       quantity: 1
     };
     this.changeHandler = this.changeHandler.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   changeHandler(event) {
@@ -19,6 +21,8 @@ class ItemCard extends Component {
     const { quantity } = this.state;
     const itemOrder = {
       itemID: this.props.item.id,
+      itemName: this.props.item.name,
+      itemPrice: this.props.item.price,
       quantity: parseInt(quantity)
     };
     this.props.addToCart(itemOrder);
@@ -70,7 +74,10 @@ class ItemCard extends Component {
                     </div>
                   </div>
                 </form>
-                <button className="btn btn-outline-info btn-lg">
+                <button
+                  className="btn btn-outline-info btn-lg"
+                  onClick={this.handleAdd}
+                >
                   Add to Cart
                 </button>
               </div>
@@ -82,4 +89,12 @@ class ItemCard extends Component {
   }
 }
 
-export default ItemCard;
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: item => dispatch(actionCreators.addToCart(item))
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(ItemCard);

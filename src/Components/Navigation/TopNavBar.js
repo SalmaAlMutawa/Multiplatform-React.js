@@ -63,7 +63,7 @@ class TopNavBar extends Component {
                   style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
                 >
                   <Link
-                    to="#"
+                    to="/orders/"
                     className="dropdown-item"
                     style={{ color: "white" }}
                   >

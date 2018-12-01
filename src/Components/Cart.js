@@ -14,12 +14,11 @@ class Cart extends Component {
   }
   render() {
     const itemsList = this.props.list.map(item => {
-      let count = 0;
+      let count = 1;
       return (
         <OrderItemRow
           key={(count += 1)}
           item={item}
-          items={this.props.items}
           removeItemFromCart={this.props.removeItemFromCart}
           match={this.props.match}
         />
@@ -64,7 +63,6 @@ class Cart extends Component {
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    items: state.items.items,
     list: state.cart.list
   };
 };
@@ -73,8 +71,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getItem: item_ID => dispatch(actionCreators.fetchItemDetail(item_ID)),
     removeItemFromCart: item =>
-      dispatch(actionCreators.removeItemFromCart(item)),
-    checkout: orderList => dispatch(actionCreators.checkout(orderList))
+      dispatch(actionCreators.removeItemFromCart(item))
   };
 };
 export default connect(

@@ -18,9 +18,9 @@ export const fetchItems = () => {
   };
 };
 
-// export const filterItems = query => {
-//   return {
-//     type: actionTypes.FILTER_ITEMS,
-//     payload: query
-//   };
-// };
+export const filterItems = query => {
+  return {
+    type: actionTypes.FILTER_ITEMS,
+    payload: query
+  };
+};
