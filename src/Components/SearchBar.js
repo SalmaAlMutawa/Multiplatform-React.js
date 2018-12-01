@@ -4,7 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { connect } from "react-redux";
 
-// import * as actionCreators from "./store/actions/index";
+import * as actionCreators from "../Store/actions";
 
 class SearchBar extends Component {
   render() {
@@ -27,18 +27,18 @@ class SearchBar extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     authors: state.rootAuthors.filteredAuthors
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    items: state.items.filteredItems
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onSearch: query => dispatch(actionCreators.filterAuthors(query))
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearch: query => dispatch(actionCreators.filterItems(query))
+  };
+};
 export default connect(
-  null,
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(SearchBar);

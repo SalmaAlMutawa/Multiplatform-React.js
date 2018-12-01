@@ -16,13 +16,22 @@ import Cart from "./Components/Cart";
 import Checkout from "./Components/Checkout";
 import PrivateRoute from "./Components/PrivateRoute";
 import TopNavBar from "./Components/Navigation/TopNavBar";
+import PrevOrders from "./Components/PrevOrders";
+import OrderDetail from "./Components/OrderDetail";
 
 class App extends Component {
-  componentWillMount() {
-    // if (this.props.user) {
-    this.props.fetchItems();
-    this.props.fetchOrders();
-    // }
+  componentDidMount() {
+    if (this.props.user) {
+      this.props.fetchItems();
+      this.props.fetchOrders();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+      this.props.fetchItems();
+      this.props.fetchOrders();
+    }
   }
   render() {
     return (
@@ -38,6 +47,8 @@ class App extends Component {
               <Route path="/items/:item_ID" component={ItemDetail} />
               <Route path="/profile/" component={UserProfile} />
               <Route path="/cart" component={Cart} />
+              <Route path="/orders" component={PrevOrders} />
+              <Route path="/order/:order_ID" component={OrderDetail} />
               <PrivateRoute path="/checkout" component={Checkout} />
               <Redirect to="/home" />
             </Switch>
