@@ -16,7 +16,6 @@ class ItemDetail extends Component {
 
   componentDidMount() {
     this.props.getItem(this.props.match.params.item_ID);
-    // this.setState({ itemID: this.props.item.id });
   }
 
   changeHandler(event) {

@@ -4,7 +4,7 @@ import * as actionCreators from "../Store/actions";
 import { connect } from "react-redux";
 import OrderItemRow from "./OrderItemRow";
 
-class Cart extends Component {
+class MiddleMan extends Component {
   getSubTotal() {
     let subTotal = 0;
     this.props.list.forEach(
@@ -13,13 +13,11 @@ class Cart extends Component {
     return subTotal;
   }
   render() {
-    const itemsList = this.props.list.map(item => {
-      let count = 1;
+    const itemsList = this.props.middleMan.map(mElement => {
       return (
         <OrderItemRow
-          key={(count += 1)}
-          item={item}
-          removeItemFromCart={this.props.removeItemFromCart}
+          key={mElement.id}
+          item={mElement.item}
           match={this.props.match}
         />
       );
@@ -48,13 +46,6 @@ class Cart extends Component {
               </tr>
             </tbody>
           </table>
-          {this.props.match === "checkout" ? null : (
-            <Link to="/checkout">
-              <button className="btn btn-info btn-lg">
-                Proceed to Checkout
-              </button>
-            </Link>
-          )}
         </div>
       </div>
     );
@@ -67,14 +58,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getItem: item_ID => dispatch(actionCreators.fetchItemDetail(item_ID)),
-    removeItemFromCart: item =>
-      dispatch(actionCreators.removeItemFromCart(item))
-  };
-};
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Cart);
+  null
+)(MiddleMan);

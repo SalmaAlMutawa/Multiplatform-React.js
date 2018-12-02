@@ -8,7 +8,6 @@ class LoginForm extends Component {
     super(props);
 
     this.state = {
-      email: "",
       username: "",
       password: ""
     };
@@ -30,7 +29,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { email, username, password } = this.state;
+    const { username, password } = this.state;
     const { user, errors } = this.props;
 
     if (user) {
@@ -53,21 +52,6 @@ class LoginForm extends Component {
             </div>
           )}
           <form onSubmit={this.submitHandler} noValidate>
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                className={`form-control ${errors.email && "is-invalid"}`}
-                type="text"
-                id="email"
-                placeholder="Email"
-                name="email"
-                value={email}
-                required
-                onChange={this.changeHandler}
-              />
-              <div className="invalid-feedback">{errors.email}</div>
-            </div>
-
             <div className="form-group">
               <label>Username</label>
               <input
