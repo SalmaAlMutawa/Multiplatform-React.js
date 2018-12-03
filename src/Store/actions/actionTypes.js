@@ -15,3 +15,4 @@ export const CHECKOUT = "CHECKOUT";
 export const ADD_ADDRESS = "ADD_ADDRESS";
 
 export const FETCH_ORDERS = "FETCH_ORDERS";
+export const SET_ORDERS_LOADING = "SET_ORDERS_LOADING";
