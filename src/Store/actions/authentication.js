@@ -6,7 +6,7 @@ import * as actionTypes from "./actionTypes";
 import { setErrors } from "./errors";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/" //local
+  baseURL: "http://46.101.85.95/api/"
 });
 
 const setAuthToken = token => {

@@ -5,7 +5,7 @@ import axios from "axios";
 import { setErrors } from "./errors";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/"
+  baseURL: "http://46.101.85.95/api/"
 });
 
 export const addToCart = item => dispatch => {
