@@ -13,7 +13,11 @@ const reducer = (state = initialState, action) => {
         orders: action.payload,
         loading: false
       };
-
+    case actionTypes.SET_ORDERS_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     default:
       return state;
   }
