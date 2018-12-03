@@ -14,7 +14,7 @@ class PrevOrders extends Component {
       <tr key={order.id}>
         <td>
           <Link to={`/order/${order.id}`}>
-            <button className="btn btn-outline-info btn-lg mx-3 my-2">
+            <button className="btn btn-outline-primary btn-lg mx-3 my-2">
               {order.date}
             </button>
           </Link>
@@ -27,7 +27,7 @@ class PrevOrders extends Component {
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
       >
         <div className="container">
-          <table className="table text-center">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Order Dates:</th>

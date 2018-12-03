@@ -20,7 +20,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filteredItems: state.items.filter(item => {
-          return `${item.name}`.toLowerCase().includes(action.payload);
+          return `${item.name} ${item.category}`
+            .toLowerCase()
+            .includes(action.payload);
         })
       };
     default:

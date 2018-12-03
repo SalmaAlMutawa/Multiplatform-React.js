@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // Components
 import ItemCard from "./ItemCard";
 import SearchBar from "./SearchBar";
-import Loading from "./Loading";
+import ZainLogo from "./ZainLogo";
 
 class ItemsList extends Component {
   render() {
@@ -15,7 +15,7 @@ class ItemsList extends Component {
     ));
 
     if (loading) {
-      return <Loading />;
+      return <ZainLogo />;
     } else {
       return (
         <div className="container m-3">
