@@ -9,6 +9,7 @@ class PrevOrders extends Component {
     const ordersList = this.props.orders.map(order => (
       <tr key={order.id}>
         <td>
+          {order.id}
           <Link to={`/order/${order.id}`}>
             <button className="btn btn-outline-info btn-lg mx-3 my-2">
               {order.date}
@@ -26,7 +27,7 @@ class PrevOrders extends Component {
           <table className="table text-center">
             <thead>
               <tr>
-                <th scope="col">Order Date</th>
+                <th scope="col">Order Dates:</th>
                 <th scope="col" />
               </tr>
             </thead>

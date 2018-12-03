@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import * as actionCreators from "../Store/actions";
 import Loading from "./Loading";
+import MiddleMan from "./MiddleMan";
 // import MiddleMan from "./MiddleMan";
 
 class OrderDetail extends Component {
@@ -16,15 +17,25 @@ class OrderDetail extends Component {
     const id = this.props.match.params.order_ID;
     this.setState({ orderID: id });
   }
-
+  getSubTotal(order) {
+    let subTotal = 0;
+    order.middle_man.forEach(
+      element => (subTotal += element.item.price * element.quantity)
+    );
+    return subTotal;
+  }
   render() {
     if (this.props.loading) {
       return <Loading />;
     } else {
-      const id = parseInt(this.state.orderID);
-      const order = this.props.orders.find(order => order.id === id);
+      const id = this.props.match.params.order_ID; //parseInt(this.state.orderID);
+      const order = this.props.orders.find(order => +order.id === +id);
       console.log(order);
-
+      //
+      let middles = order.middle_man;
+      const middleManList = middles.map(m => {
+        return <MiddleMan key={m.id} mid={m} match={this.props.match} />;
+      });
       return (
         <div className="container">
           <div
@@ -43,7 +54,21 @@ class OrderDetail extends Component {
                     {order.date}
                   </p>
                   <h3 className="lead">
-                    <strong>Middle Man: </strong>
+                    <strong>Details: </strong>
+                    <table className="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Item</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>{middleManList}</tbody>
+                      <tr>
+                        <th scope="col">SubTotal</th>
+                        <td>{this.getSubTotal(order)} KD</td>
+                      </tr>
+                    </table>
                   </h3>
                   <div className="row" />
                 </div>
