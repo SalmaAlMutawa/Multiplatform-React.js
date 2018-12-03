@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-// import * as actionCreators from "./Store/actions";
-
-//Components
 
 class OrderItemRow extends Component {
   render() {

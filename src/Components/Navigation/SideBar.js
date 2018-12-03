@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actionCreators from "../../Store/actions";
+import { Link } from "react-router-dom";
 import "../../main.css";
 
 class SideBar extends Component {
@@ -9,7 +7,7 @@ class SideBar extends Component {
     return (
       <div className="sidenav">
         <Link
-          to="#"
+          to="/orders/"
           className="nav-link active"
           style={{ color: "white", lineHeight: "3" }}
         >
@@ -28,13 +26,6 @@ class SideBar extends Component {
           style={{ color: "white", lineHeight: "3" }}
         >
           Edit Profile
-        </Link>
-        <Link
-          to="#"
-          className="nav-link active"
-          style={{ color: "white", lineHeight: "3" }}
-        >
-          About
         </Link>
       </div>
     );

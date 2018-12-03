@@ -25,7 +25,7 @@ class LoginForm extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    this.props.login(this.state, this.props.history);
+    this.props.login(this.state);
   }
 
   render() {
@@ -33,7 +33,7 @@ class LoginForm extends Component {
     const { user, errors } = this.props;
 
     if (user) {
-      if (this.props.cart) {
+      if (this.props.cart.length >= 1) {
         return <Redirect to="/checkout" />;
       } else {
         return <Redirect to="/list" />;
@@ -104,8 +104,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history)),
+  login: userData => dispatch(actionCreators.login(userData)),
   resetForm: () => dispatch(actionCreators.setErrors({}))
 });
 

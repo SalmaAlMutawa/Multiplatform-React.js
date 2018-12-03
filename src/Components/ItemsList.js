@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 
 // Components
 import ItemCard from "./ItemCard";
 import SearchBar from "./SearchBar";
-// import Loading from "./Loading";
+import Loading from "./Loading";
 
 class ItemsList extends Component {
   render() {
@@ -15,24 +14,22 @@ class ItemsList extends Component {
       <ItemCard key={item.name} item={item} />
     ));
 
-    // if (loading) {
-    //   return <Loading />;
-    // } else {
-
-    return (
-      <div className="container m-3">
-        <SearchBar />
-        <div className="row">{itemCards}</div>
-      </div>
-    );
-    // }
+    if (loading) {
+      return <Loading />;
+    } else {
+      return (
+        <div className="container m-3">
+          <SearchBar />
+          <div className="row">{itemCards}</div>
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    items: state.items.items,
     loading: state.items.loading,
     filteredItems: state.items.filteredItems
   };

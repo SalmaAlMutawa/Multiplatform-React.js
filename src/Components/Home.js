@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import TopNavBar from "./Navigation/TopNavBar";
-import AuthButton from "./AuthButton";
 
 class Home extends Component {
   render() {
