@@ -1,22 +1,9 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import * as actionCreators from "../Store/actions";
 import Loading from "./Loading";
 import MiddleMan from "./MiddleMan";
-// import MiddleMan from "./MiddleMan";
 
 class OrderDetail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orderID: 0
-    };
-  }
-  componentDidMount() {
-    const id = this.props.match.params.order_ID;
-    this.setState({ orderID: id });
-  }
   getSubTotal(order) {
     let subTotal = 0;
     order.middle_man.forEach(
@@ -24,14 +11,14 @@ class OrderDetail extends Component {
     );
     return subTotal;
   }
+
   render() {
     if (this.props.loading) {
       return <Loading />;
     } else {
-      const id = this.props.match.params.order_ID; //parseInt(this.state.orderID);
+      const id = this.props.match.params.order_ID;
       const order = this.props.orders.find(order => +order.id === +id);
-      console.log(order);
-      //
+
       let middles = order.middle_man;
       const middleManList = middles.map(m => {
         return <MiddleMan key={m.id} mid={m} match={this.props.match} />;
@@ -54,7 +41,6 @@ class OrderDetail extends Component {
                     {order.date}
                   </p>
                   <h3 className="lead">
-                    <strong>Details: </strong>
                     <table className="table">
                       <thead>
                         <tr>
@@ -64,10 +50,14 @@ class OrderDetail extends Component {
                         </tr>
                       </thead>
                       <tbody>{middleManList}</tbody>
-                      <tr>
-                        <th scope="col">SubTotal</th>
-                        <td>{this.getSubTotal(order)} KD</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <th scope="col" colSpan="2">
+                            SubTotal
+                          </th>
+                          <td colSpan="2">{this.getSubTotal(order)} KD</td>
+                        </tr>
+                      </tbody>
                     </table>
                   </h3>
                   <div className="row" />
@@ -83,7 +73,6 @@ class OrderDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.user,
     orders: state.orders.orders,
     loading: state.orders.loading
   };

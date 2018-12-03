@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../Store/actions";
 
@@ -28,12 +28,16 @@ class SignupForm extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    this.props.signup(this.state, this.props.history);
+    this.props.signup(this.state);
   }
 
   render() {
     const { first_name, last_name, email, username, password } = this.state;
     const { errors } = this.props;
+
+    if (this.props.user) {
+      return <Redirect to="/list" />;
+    }
     return (
       <div
         className="jumbotron"
@@ -132,12 +136,12 @@ class SignupForm extends Component {
 }
 
 const mapStateToProps = state => ({
+  user: state.auth.user,
   errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-  signup: (userData, history) =>
-    dispatch(actionCreators.signup(userData, history)),
+  signup: userData => dispatch(actionCreators.signup(userData)),
   resetForm: () => dispatch(actionCreators.setErrors({}))
 });
 

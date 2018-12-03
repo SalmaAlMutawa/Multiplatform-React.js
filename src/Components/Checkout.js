@@ -37,15 +37,12 @@ class Checkout extends Component {
 const mapStateToProps = state => {
   return {
     user: state.auth.user,
-    items: state.items.items,
     list: state.cart.list
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getItem: item_ID => dispatch(actionCreators.fetchItemDetail(item_ID)),
-
     checkout: orderList => dispatch(actionCreators.checkout(orderList))
   };
 };

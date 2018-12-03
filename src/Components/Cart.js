@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as actionCreators from "../Store/actions";
 import { connect } from "react-redux";
 import OrderItemRow from "./OrderItemRow";
@@ -62,14 +62,12 @@ class Cart extends Component {
 }
 const mapStateToProps = state => {
   return {
-    user: state.auth.user,
     list: state.cart.list
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getItem: item_ID => dispatch(actionCreators.fetchItemDetail(item_ID)),
     removeItemFromCart: item =>
       dispatch(actionCreators.removeItemFromCart(item))
   };

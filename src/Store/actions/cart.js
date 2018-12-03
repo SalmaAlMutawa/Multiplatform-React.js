@@ -28,10 +28,8 @@ export const checkout = newOrder => {
       .post("/order/", newOrder)
       .then(res => res.data)
       .then(
-        //createdOrder =>
         dispatch({
           type: actionTypes.CHECKOUT
-          // payload: createdOrder
         })
       )
       .catch(err => {

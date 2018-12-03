@@ -21,8 +21,8 @@ import OrderDetail from "./Components/OrderDetail";
 
 class App extends Component {
   componentDidMount() {
+    this.props.fetchItems();
     if (this.props.user) {
-      this.props.fetchItems();
       this.props.fetchOrders();
     }
   }

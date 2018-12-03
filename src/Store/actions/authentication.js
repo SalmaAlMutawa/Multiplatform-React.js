@@ -37,7 +37,7 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = (userData, history) => {
+export const login = userData => {
   return dispatch => {
     instance
       .post("/login/", userData) //local
@@ -48,7 +48,6 @@ export const login = (userData, history) => {
         setAuthToken(user.token);
         dispatch(setCurrentUser(decodedUser));
       })
-      //.catch(err => console.error(err));
       .catch(err => {
         if (err.response) dispatch(setErrors(err.response.data));
         else console.error(err);
@@ -56,15 +55,14 @@ export const login = (userData, history) => {
   };
 };
 
-export const signup = (userData, history) => {
+export const signup = userData => {
   return dispatch => {
     instance
       .post("/register/", userData) //local
       .then(res => res.data)
       .then(user => {
-        dispatch(login(userData, history));
+        dispatch(login(userData));
       })
-      //.catch(err => console.error(err));
       .catch(err => {
         if (err.response) dispatch(setErrors(err.response.data));
         else console.log(err);
