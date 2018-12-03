@@ -10,7 +10,6 @@ class Home extends Component {
             Welcome to <strong>Website Name</strong>! We really hope you enjoy
             shopping with us
           </p>
-
           <Link to="/list">
             <button className="btn btn-info btn-lg">Start Shopping</button>
           </Link>

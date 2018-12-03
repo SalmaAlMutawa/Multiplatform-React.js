@@ -12,7 +12,10 @@ export const fetchItems = () => {
       .get("/api/list/") //local
       .then(res => res.data)
       .then(items =>
-        dispatch({ type: actionTypes.FETCH_ITEMS, payload: items })
+        setTimeout(
+          () => dispatch({ type: actionTypes.FETCH_ITEMS, payload: items }),
+          4000
+        )
       )
       .catch(error => console.error(error));
   };
