@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 
 class PrevOrders extends Component {
   componentDidMount() {
-    this.props.fetchOrders();
+    if (this.props.user) {
+      this.props.fetchOrders();
+    }
   }
   render() {
     const ordersList = this.props.orders.map(order => (
@@ -41,6 +43,7 @@ class PrevOrders extends Component {
 }
 const mapStateToProps = state => {
   return {
+    user: state.auth.user,
     orders: state.orders.orders
   };
 };
