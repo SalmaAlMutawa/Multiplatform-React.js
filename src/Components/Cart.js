@@ -27,9 +27,9 @@ class Cart extends Component {
     return (
       <div
         className="jumbotron"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
       >
-        <div className="container">
+        <div className="container" style={{ color: "white" }}>
           <table className="table">
             <thead>
               <tr>
@@ -50,7 +50,7 @@ class Cart extends Component {
           </table>
           {this.props.match === "checkout" ? null : (
             <Link to="/checkout">
-              <button className="btn btn-info btn-lg">
+              <button className="btn btn-outline-info btn-lg">
                 Proceed to Checkout
               </button>
             </Link>

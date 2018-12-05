@@ -43,9 +43,9 @@ class AddressForm extends Component {
     return (
       <div
         className="jumbotron"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       >
-        <div className="container">
+        <div className="container" style={{ color: "white" }}>
           <h3>Billing Address</h3>
           <form onSubmit={this.submitHandler} noValidate>
             <div className="row">
@@ -144,7 +144,10 @@ class AddressForm extends Component {
             </div>
 
             <div className="row">
-              <button type="submit" className="btn btn-info btn-lg mx-4">
+              <button
+                type="submit"
+                className="btn btn-outline-info btn-lg mx-4"
+              >
                 Save
               </button>
             </div>

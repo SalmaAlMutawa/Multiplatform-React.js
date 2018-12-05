@@ -14,8 +14,8 @@ class PrevOrders extends Component {
       <tr key={order.id}>
         <td>
           <Link to={`/order/${order.id}`}>
-            <button className="btn btn-outline-primary btn-lg mx-3 my-2">
-              {order.date}
+            <button className="btn btn-outline-info btn-lg mx-3 my-2">
+              Order Placed on {order.date}
             </button>
           </Link>
         </td>
@@ -24,9 +24,9 @@ class PrevOrders extends Component {
     return (
       <div
         className="jumbotron"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", color: "white" }}
       >
-        <div className="container">
+        <div className="container text-center">
           <table className="table">
             <thead>
               <tr>

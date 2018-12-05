@@ -30,8 +30,16 @@ class ItemCard extends Component {
   render() {
     return (
       <div className="col-md-4">
-        <div className="card my-2">
-          <div className="card-header">{this.props.item.category}</div>
+        <div
+          className="card my-2"
+          style={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
+        >
+          <div
+            className="card-header"
+            style={{ backgroundColor: "rgba(138,43,226,0.5)", color: "white" }}
+          >
+            {this.props.item.category}
+          </div>
           <div className="card-body">
             <img
               className="card-img-top"
@@ -42,7 +50,7 @@ class ItemCard extends Component {
             <p className="card-text">Price: {this.props.item.price} KD</p>
             <div className="text-center">
               <Link to={`/items/${this.props.item.id}`}>
-                <button className="btn btn-outline-info btn-lg mx-3 my-2">
+                <button className="btn btn-outline-success btn-lg mx-3 my-2">
                   View
                 </button>
               </Link>

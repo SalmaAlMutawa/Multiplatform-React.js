@@ -13,7 +13,7 @@ class OrderItemRow extends Component {
           {this.props.match === "checkout" ? null : (
             <button
               type="button"
-              className="btn btn-outline-danger"
+              className="btn btn-danger"
               onClick={() => this.props.removeItemFromCart(this.props.item)}
             >
               Remove

@@ -43,12 +43,14 @@ class ItemDetail extends Component {
       return <Loading />;
     } else {
       return (
-        <div className="container">
+        <div className="container" style={{ color: "white" }}>
           <div
             className="jumbotron"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
           >
-            <h1 className="display-4">{this.props.item.name}</h1>
+            <h1 className="display-4">
+              <strong>{this.props.item.name}</strong>
+            </h1>
             <div className="row">
               <div className="col-6">
                 <img
@@ -58,15 +60,21 @@ class ItemDetail extends Component {
                 />
               </div>
               <div className="col-6">
-                <div className="CenterPage">
-                  <h3 className="lead">
-                    <strong>Category: </strong> {this.props.item.category}
+                <div
+                  className="CenterPage"
+                  style={{
+                    color: "white",
+                    fontFamily: "sans-serif"
+                  }}
+                >
+                  <h3 className="lead" style={{ lineHeight: "3" }}>
+                    <strong>Category:</strong> {this.props.item.category}
                   </h3>
                   <p className="lead">
                     <strong>Description: </strong>
                     {this.props.item.description}
                   </p>
-                  <h3 className="lead">
+                  <h3 className="lead" style={{ lineHeight: "3" }}>
                     <strong>Price: </strong>
                     {this.props.item.price} KD
                   </h3>

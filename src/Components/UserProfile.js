@@ -10,7 +10,7 @@ class UserProfile extends Component {
         <SideBar />
         <div
           className="jumbotron"
-          style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", color: "white" }}
         >
           <div className="container">
             <form>
@@ -21,7 +21,7 @@ class UserProfile extends Component {
                     type="text"
                     className="form-control"
                     value={this.props.user.first_name}
-                    style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ backgroundColor: "rgba(255, 255, 255, 0.75)" }}
                   />
                 </div>
               </div>
@@ -32,7 +32,7 @@ class UserProfile extends Component {
                     type="text"
                     className="form-control"
                     value={this.props.user.last_name}
-                    style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ backgroundColor: "rgba(255, 255, 255, 0.75)" }}
                   />
                 </div>
               </div>
@@ -44,7 +44,7 @@ class UserProfile extends Component {
                     type="text"
                     className="form-control"
                     value={this.props.user.username}
-                    style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ backgroundColor: "rgba(255, 255, 255, 0.75)" }}
                   />
                 </div>
               </div>
@@ -55,7 +55,7 @@ class UserProfile extends Component {
                     type="text"
                     className="form-control"
                     value={this.props.user.email}
-                    style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+                    style={{ backgroundColor: "rgba(255, 255, 255, 0.75)" }}
                   />
                 </div>
               </div>
