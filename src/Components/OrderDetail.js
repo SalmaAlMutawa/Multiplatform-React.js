@@ -27,12 +27,12 @@ class OrderDetail extends Component {
         <div className="container">
           <div
             className="jumbotron"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
           >
             <h1 className="display-4">{}</h1>
             <div className="row">
               <div className="col-6">
-                <div className="CenterPage">
+                <div className="CenterPage" style={{ color: "white" }}>
                   <h3 className="lead">
                     <strong>Order ID: {order.id}</strong>
                   </h3>

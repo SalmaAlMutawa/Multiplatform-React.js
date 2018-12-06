@@ -92,6 +92,10 @@ class ItemDetail extends Component {
                             className="custom-select mr-sm-2"
                             id="inlineFormCustomSelect"
                             onChange={this.changeHandler}
+                            style={{
+                              backgroundColor: "rgba(0,0,0,0.2)",
+                              color: "white"
+                            }}
                           >
                             <option value="1">Quantity</option>
                             <option value="1">1</option>

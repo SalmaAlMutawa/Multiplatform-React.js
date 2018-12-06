@@ -58,7 +58,7 @@ export const login = userData => {
 export const signup = userData => {
   return dispatch => {
     instance
-      .post("/register/", userData) //local
+      .post("/register/", userData)
       .then(res => res.data)
       .then(user => {
         dispatch(login(userData));
@@ -70,7 +70,7 @@ export const signup = userData => {
   };
 };
 
-export const logout = () => {
+export const logout = history => {
   setAuthToken();
   return setCurrentUser();
 };

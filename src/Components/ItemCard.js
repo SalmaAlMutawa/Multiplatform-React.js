@@ -29,7 +29,7 @@ class ItemCard extends Component {
   }
   render() {
     return (
-      <div className="col-md-4">
+      <div className="col-md-4 d-flex align-items-stretch">
         <div
           className="card my-2"
           style={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
@@ -66,6 +66,10 @@ class ItemCard extends Component {
                         className="custom-select mr-sm-2"
                         id="inlineFormCustomSelect"
                         onChange={this.changeHandler}
+                        style={{
+                          backgroundColor: "rgba(0,0,0,0.2)",
+                          color: "white"
+                        }}
                       >
                         <option defaultValue="1">Quantity</option>
                         <option value="1">1</option>

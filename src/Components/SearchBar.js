@@ -15,9 +15,16 @@ class SearchBar extends Component {
             className="form-control"
             type="text"
             onChange={event => this.props.onSearch(event.target.value)}
+            style={{ backgroundColor: "rgba(255,255,255,0.75)" }}
           />
           <div className="input-group-append">
-            <span className="input-group-text">
+            <span
+              className="input-group-text"
+              style={{
+                backgroundColor: "rgba(138,43,226,0.5)",
+                color: "white"
+              }}
+            >
               <FontAwesomeIcon icon={faSearch} />
             </span>
           </div>

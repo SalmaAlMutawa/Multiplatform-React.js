@@ -30,7 +30,7 @@ class TopNavBar extends Component {
             fontSize: "16pt"
           }}
         >
-          Website Name
+          Zain World
         </Link>
         <button
           className="navbar-toggler navbar-toggler-right"
